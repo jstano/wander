@@ -69,80 +69,72 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    // Handle Skip logic
-                    print('Skip tapped');
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/welcome');
                   },
-                  child: const Text(
-                    'Skip',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  child: const Text('Skip'),
                 ),
                 Row(
                   children: List.generate(
                     onboardingPages.length,
-                        (index) => buildDot(index, context),
+                    (index) => buildDot(index, context),
                   ),
                 ),
                 _currentPage == onboardingPages.length - 1
                     ? ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/welcome');
-                    // Handle Get Started/Login logic
-                    print('Get Started tapped');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    // Your primary accent color
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 12,
-                    ),
-                  ),
-                  child: const Text(
-                    'Get Started',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                )
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/welcome');
+                          // Handle Get Started/Login logic
+                          print('Get Started tapped');
+                        },
+                        // style: ElevatedButton.styleFrom(
+                        //   backgroundColor: Colors.blueAccent,
+                        //   // Your primary accent color
+                        //   shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.circular(30.0),
+                        //   ),
+                        //   padding: const EdgeInsets.symmetric(
+                        //     horizontal: 24,
+                        //     vertical: 12,
+                        //   ),
+                        // ),
+                        child: const Text(
+                          'Get Started',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
                     : ElevatedButton(
-                  onPressed: () {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    // Your primary accent color
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 12,
-                    ),
-                  ),
-                  child: const Text(
-                    'Next',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                        onPressed: () {
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 400),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        // style: ElevatedButton.styleFrom(
+                        //   backgroundColor: Colors.blueAccent,
+                        //   // Your primary accent color
+                        //   shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.circular(30.0),
+                        //   ),
+                        //   padding: const EdgeInsets.symmetric(
+                        //     horizontal: 24,
+                        //     vertical: 12,
+                        //   ),
+                        // ),
+                        child: const Text(
+                          'Next',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
               ],
             ),
           ),
@@ -201,7 +193,7 @@ class OnboardingPage extends StatelessWidget {
                 // Background "tab" shape
                 Container(
                   height:
-                  MediaQuery.of(context).size.width *
+                      MediaQuery.of(context).size.width *
                       0.7, // Adjust size as needed
                   width: MediaQuery.of(context).size.width * 0.7,
                   decoration: BoxDecoration(
@@ -214,7 +206,7 @@ class OnboardingPage extends StatelessWidget {
                 // Oval image container (simulating the oval mask)
                 Container(
                   width:
-                  MediaQuery.of(context).size.width *
+                      MediaQuery.of(context).size.width *
                       0.6, // Smaller than background
                   height: MediaQuery.of(context).size.width * 0.6,
                   decoration: BoxDecoration(

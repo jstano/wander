@@ -7,7 +7,9 @@ import 'package:wander/map-setup.dart';
 import 'package:wander/onboarding.dart';
 import 'package:wander/paywall.dart';
 import 'package:wander/profile.dart';
+import 'package:wander/root.dart';
 import 'package:wander/signin.dart';
+import 'package:wander/theme.dart';
 import 'package:wander/trip-details.dart';
 import 'package:wander/welcome.dart';
 
@@ -22,14 +24,16 @@ class WanderApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'WanderBooks',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: createTheme(Brightness.light),
+      darkTheme: createTheme(Brightness.dark),
+      themeMode: ThemeMode.system,
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      //   visualDensity: VisualDensity.adaptivePlatformDensity,
+      // ),
       initialRoute: '/',
       routes: {
-        '/': (context) => WelcomeScreen(),
+        '/': (context) => RootScreen(),
         '/welcome': (context) => WelcomeScreen(),
         '/signin': (context) => SignInScreen(),
         '/mapsetup': (context) => MapSetupScreen(),
@@ -42,7 +46,6 @@ class WanderApp extends StatelessWidget {
         '/paywall': (context) => PaywallScreen(),
         '/onboarding': (context) => OnboardingScreen(),
       },
-      // home: const OnboardingScreen(),
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wander/sign-in-apple.dart';
+import 'package:wander/sign-in-google.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -9,9 +11,9 @@ class SignInScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/mapsetup'), child: Text('Sign in with Apple')),
+            AppleSignInButton(),
             SizedBox(height: 16),
-            ElevatedButton(onPressed: () => Navigator.pushNamed(context, '/mapsetup'), child: Text('Sign in with Google')),
+            GoogleSignInButton(),
           ],
         ),
       ),
