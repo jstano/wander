@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -83,22 +84,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 _currentPage == onboardingPages.length - 1
                     ? ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          final prefs = await SharedPreferences.getInstance();
+                          prefs.setBool('onboardingComplete', true);
+
                           Navigator.pushNamed(context, '/welcome');
                           // Handle Get Started/Login logic
                           print('Get Started tapped');
                         },
-                        // style: ElevatedButton.styleFrom(
-                        //   backgroundColor: Colors.blueAccent,
-                        //   // Your primary accent color
-                        //   shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(30.0),
-                        //   ),
-                        //   padding: const EdgeInsets.symmetric(
-                        //     horizontal: 24,
-                        //     vertical: 12,
-                        //   ),
-                        // ),
                         child: const Text(
                           'Get Started',
                           style: TextStyle(
@@ -115,17 +108,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             curve: Curves.easeInOut,
                           );
                         },
-                        // style: ElevatedButton.styleFrom(
-                        //   backgroundColor: Colors.blueAccent,
-                        //   // Your primary accent color
-                        //   shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(30.0),
-                        //   ),
-                        //   padding: const EdgeInsets.symmetric(
-                        //     horizontal: 24,
-                        //     vertical: 12,
-                        //   ),
-                        // ),
                         child: const Text(
                           'Next',
                           style: TextStyle(

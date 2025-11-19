@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MapSetupScreen extends StatelessWidget {
+  const MapSetupScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

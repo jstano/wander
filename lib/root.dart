@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RootScreen extends StatelessWidget {
+  const RootScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _checkOnboarding(context);
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   _checkOnboarding(context);
+    // });
 
     return Scaffold(
       body: Center(child: CircularProgressIndicator()),
