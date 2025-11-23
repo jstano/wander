@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wander/features/home/map.dart';
+import 'package:wander/features/home/map_view_openstreet.dart';
 import 'package:wander/features/home/profile.dart';
 import 'package:wander/features/home/stats.dart';
 import 'package:wander/features/home/trips.dart';
@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const MapView(),
+    const MapViewOpenStreet(),
     const TripsView(),
     const StatsView(),
     const ProfileView(),

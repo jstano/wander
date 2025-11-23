@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wander/features/home/global_stats.dart';
+import 'package:wander/features/home/map_view_openstreet.dart';
 
 class MapView extends StatelessWidget {
   const MapView({super.key});
@@ -27,9 +28,7 @@ class MapView extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.7,
               color: Colors.grey[200],
-              child: const Center(
-                child: Text('Interactive Map Here'),
-              ),
+              child: MapViewOpenStreet(),
             ),
             const SizedBox(height: 16),
           ],
