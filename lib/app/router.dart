@@ -15,7 +15,7 @@ import 'package:wander/root.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/welcome',
+    initialLocation: '/',
     routes: [
       GoRoute(
         path: '/',

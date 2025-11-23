@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:go_router/go_router.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   _checkOnboarding(context);
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkOnboarding(context);
+    });
 
     return Scaffold(
       body: Center(child: CircularProgressIndicator()),
@@ -16,13 +16,15 @@ class RootScreen extends StatelessWidget {
   }
 
   void _checkOnboarding(BuildContext context) async {
-    final prefs = await SharedPreferences.getInstance();
-    bool onboardingComplete = prefs.getBool('onboardingComplete') ?? false;
+    context.go("/welcome");
 
-    if (onboardingComplete) {
-      Navigator.pushReplacementNamed(context, '/home');
-    } else {
-      Navigator.pushReplacementNamed(context, '/onboarding');
-    }
+    // final prefs = await SharedPreferences.getInstance();
+    // bool onboardingComplete = prefs.getBool('onboardingComplete') ?? false;
+    //
+    // if (onboardingComplete) {
+    //   Navigator.pushReplacementNamed(context, '/home');
+    // } else {
+    //   Navigator.pushReplacementNamed(context, '/onboarding');
+    // }
   }
 }
