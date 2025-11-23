@@ -30,6 +30,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const SignInScreen(),
       ),
       GoRoute(
+        path: '/signup',
+        builder: (context, state) => const SignInScreen(),
+      ),
+      GoRoute(
         path: '/mapsetup',
         builder: (context, state) => const MapSetupScreen(),
       ),

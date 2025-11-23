@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wander/core/components/responsive_container.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -57,7 +58,9 @@ class SignInScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: () => {},
+                  onPressed: () => {
+                    context.go('/home')
+                  },
                   child: const Text('Sign in or create account'),
                 ),
                 SizedBox(height: 8),

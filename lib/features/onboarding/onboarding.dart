@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -14,23 +15,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<OnboardingPageData> onboardingPages = [
     OnboardingPageData(
-      title: 'Welcome to WanderBooks',
-      description: 'Your Personal Journey.\nBound Digitally',
+      title: 'Track Your Travels',
+      description: 'Pin every country, city, and\nattraction you\'ve explored',
       imagePath: 'assets/images/page-1.png',
       backgroundColor: const Color(0xFFEAE3DB), // Your tab background color
     ),
     OnboardingPageData(
-      title: 'Track Every Adventure',
-      description: 'Log countries, cities &\nattractions with ease',
+      title: 'Capture Every Moment',
+      description: 'Add photos, notes, and memories\nfrom each adventure',
       imagePath: 'assets/images/page-2.png',
-      // Replace with your actual image path
       backgroundColor: const Color(0xFFEAE3DB),
     ),
     OnboardingPageData(
-      title: 'Relive Your Memories',
-      description: 'Automatic digital travel books\nwith photos, notes & maps',
+      title: 'Relive Your Journey',
+      description:
+          'Beautifully designed digital books\ncreated automatically for every trip',
       imagePath: 'assets/images/page-3.png',
-      // Replace with your actual image path
       backgroundColor: const Color(0xFFEAE3DB),
     ),
   ];
@@ -72,7 +72,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/welcome');
+                    context.go('/welcome');
                   },
                   child: const Text('Skip'),
                 ),
@@ -88,18 +88,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           final prefs = await SharedPreferences.getInstance();
                           prefs.setBool('onboardingComplete', true);
 
-                          Navigator.pushNamed(context, '/welcome');
+                          context.go('/welcome');
                           // Handle Get Started/Login logic
                           print('Get Started tapped');
                         },
-                        child: const Text(
-                          'Get Started',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: const Text('Get Started'),
                       )
                     : ElevatedButton(
                         onPressed: () {
@@ -108,14 +101,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             curve: Curves.easeInOut,
                           );
                         },
-                        child: const Text(
-                          'Next',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: const Text('Next'),
                       ),
               ],
             ),
@@ -126,6 +112,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Widget buildDot(int index, BuildContext context) {
+    final brandColor = Theme.of(context).colorScheme.primary;
+    final accentColor = Theme.of(context).colorScheme.secondary;
+
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       margin: const EdgeInsets.only(right: 5),
@@ -133,8 +122,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       width: _currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
         color: _currentPage == index
-            ? Colors.blueAccent
-            : Colors.grey.withOpacity(0.5),
+            ? brandColor
+            : Colors.grey.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(3),
       ),
     );

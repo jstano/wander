@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wander/core/components/responsive_container.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -49,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, '/signin'),
+                    onPressed: () => context.go('/signin'),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       shape: RoundedRectangleBorder(
@@ -65,7 +66,7 @@ class WelcomeScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                    onPressed: () => Navigator.pushNamed(context, '/signup'),
+                    onPressed: () => context.push('/signup'),
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       side: BorderSide(color: Colors.grey[300]!),
