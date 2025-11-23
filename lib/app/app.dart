@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wander/app/router.dart';
+import 'package:wander/app/theme.dart';
 
 class WanderApp extends ConsumerWidget {
   const WanderApp({super.key});
@@ -12,7 +13,7 @@ class WanderApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'WanderBooks',
       routerConfig: router,
-      // theme: createTheme(Brightness.light),
+      theme: wanderBooksTheme(),
       // darkTheme: createTheme(Brightness.dark),
       // themeMode: ThemeMode.system,
     );

@@ -1,5 +1,5 @@
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wander/features/ai_summary/ai_summary.dart';
 import 'package:wander/features/country/country_detail.dart';
 import 'package:wander/features/home/home.dart';
@@ -15,7 +15,7 @@ import 'package:wander/root.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: '/welcome',
     routes: [
       GoRoute(
         path: '/',
