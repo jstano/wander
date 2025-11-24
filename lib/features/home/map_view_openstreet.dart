@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:wander/features/home/global_stats.dart';
 
-/// Alternative map implementation using OpenStreetMap (no API key required)
 class MapViewOpenStreet extends StatefulWidget {
   const MapViewOpenStreet({super.key});
 

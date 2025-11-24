@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wander/core/components/responsive_container.dart';
 
@@ -8,9 +8,6 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final brandColor = Theme.of(context).colorScheme.primary;
-    final accentColor = Theme.of(context).colorScheme.secondary;
-
     return Scaffold(
       body: ResponsiveContainer(
         child: SafeArea(
@@ -19,16 +16,10 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    FaIcon(FontAwesomeIcons.earthAmericas, size: 120, color: brandColor),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: FaIcon(FontAwesomeIcons.book, size: 48, color: accentColor),
-                    ),
-                  ],
+                SvgPicture.asset(
+                  'assets/images/wanderbooks_icon.svg',
+                  width: 120,
+                  height: 120,
                 ),
                 SizedBox(height: 32),
                 Text(

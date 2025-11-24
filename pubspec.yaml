@@ -46,6 +46,8 @@ dependencies:
    google_maps_flutter: ^2.5.0
    geolocator: ^14.0.2
    geocoding: ^4.0.0     # For address search
+   url_launcher: ^6.3.2
+   flutter_svg: ^2.2.3
 
    # The following adds the Cupertino Icons font to your application.
    # Use with the CupertinoIcons class for iOS style icons.
@@ -77,6 +79,7 @@ flutter:
       - assets/images/page-1.png
       - assets/images/page-2.png
       - assets/images/page-3.png
+      - assets/images/wanderbooks_icon.svg
 
 fonts:
    - family: FontAwesomeBrands

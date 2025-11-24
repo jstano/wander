@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wander/core/components/responsive_container.dart';
 
@@ -9,9 +9,6 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final brandColor = Theme.of(context).colorScheme.primary;
-    final accentColor = Theme.of(context).colorScheme.secondary;
-
     return Scaffold(
       body: ResponsiveContainer(
         child: SafeArea(
@@ -19,27 +16,16 @@ class SignInScreen extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Column(
               children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    FaIcon(FontAwesomeIcons.earthAmericas, size: 80, color: brandColor),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: FaIcon(FontAwesomeIcons.book, size: 32, color: accentColor),
-                    ),
-                  ],
+                SvgPicture.asset(
+                  'assets/images/wanderbooks_icon.svg',
+                  width: 120,
+                  height: 120,
                 ),
                 Text(
                   'Welcome to WanderBooks',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 16),
-                // Text(
-                //   'Email address',
-                //   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                // ),
-                // SizedBox(height: 8),
                 FractionallySizedBox(
                   widthFactor: 0.5,
                   child: TextFormField(
